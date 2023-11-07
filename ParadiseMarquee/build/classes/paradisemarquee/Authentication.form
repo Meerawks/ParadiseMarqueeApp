@@ -109,7 +109,7 @@
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="Log in to your account to proceed"/>
+            <Property name="text" type="java.lang.String" value="Please Log in to your account to proceed"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="jButton1">

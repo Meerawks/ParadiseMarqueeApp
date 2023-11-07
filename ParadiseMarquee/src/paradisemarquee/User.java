@@ -42,6 +42,7 @@ Class.forName("com.mysql.jdbc.Driver");
         //here sonoo is database name, root is username and password
         Statement stmt=con.createStatement();
         stmt.executeUpdate("INSERT into userinfo VALUES ( '"+ID+"', '"+username+"','"+password+"','0')");
+        JOptionPane.showMessageDialog(null,"Sign Up Successful");
 //        ResultSet rs=stmt.executeQuery("select * from stdinfo");
 //        while(rs.next())
 //            System.out.println(rs.getString(1)+"  "+rs.getString(2));  
@@ -79,11 +80,12 @@ Class.forName("com.mysql.jdbc.Driver");
                 }
            
             }
-            else {
-                 JOptionPane.showMessageDialog(null,"User not found");
-                 return false;
-            }
+           
+                 
+            
         }
+        JOptionPane.showMessageDialog(null,"User not found");
+                 return false;
     }
 }catch(Exception e){ System.out.println(e);} 
     return false;
