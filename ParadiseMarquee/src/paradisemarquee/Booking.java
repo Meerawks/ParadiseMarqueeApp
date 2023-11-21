@@ -5,7 +5,9 @@
  */
 package paradisemarquee;
 
+import java.awt.List;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import javax.swing.*;
 import java.util.Date;
 /**
@@ -13,7 +15,9 @@ import java.util.Date;
  * @author samee
  */
 public class Booking extends javax.swing.JFrame {
+
   Boolean inputconfirmed=true;
+  
     /**
      * Creates new form Booking
      */
@@ -417,8 +421,13 @@ public class Booking extends javax.swing.JFrame {
            JOptionPane.showMessageDialog(null,"Enter Valid Amount");
 
       }
-         if(inputconfirmed==true)
+         if(inputconfirmed==true){
           BookingInfo.AddBooking();
+             Observer obj=new Observer();
+             obj.Notify();
+           
+         }
+
         //Reading from file and inserting data into linked list
 
 //        list1.getfromfile("Monday");

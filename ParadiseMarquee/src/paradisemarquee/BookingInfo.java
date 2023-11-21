@@ -10,7 +10,7 @@ import java.sql.Statement;
 import java.util.Date;
 import java.util.Random;
 import javax.swing.JOptionPane;
-import static paradisemarquee.User.ID;
+
 /**
  *
  * @author samee
@@ -46,9 +46,9 @@ Class.forName("com.mysql.jdbc.Driver");
 
     try (Connection con = DriverManager.getConnection(  
             "jdbc:mysql://localhost:3306/paradisemarquee","root","")) {
-
+        User obj=User.getInstance();
         Statement stmt=con.createStatement();
-        stmt.executeUpdate("INSERT into booking VALUES ( '"+User.ID+"', '"+Booking_No+"','"+event_type+"','"+Date+"','"+slot+"','"+meal+"','"+attendees+"','"+price+"','"+status+"')");
+        stmt.executeUpdate("INSERT into booking VALUES ( '"+obj.ID+"', '"+Booking_No+"','"+event_type+"','"+Date+"','"+slot+"','"+meal+"','"+attendees+"','"+price+"','"+status+"')");
         JOptionPane.showMessageDialog(null,"Booking Confirmed");
 
     }

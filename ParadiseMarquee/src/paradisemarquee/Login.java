@@ -171,22 +171,23 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-        User.username=jTextField1.getText();
-        User.password=jTextField2.getText();
+       User obj=User.getInstance();
+       obj.username=jTextField1.getText();
+        obj.password=jTextField2.getText();
         System.out.println(jTextField2.getPassword());
         char[] adminpass=jTextField2.getPassword();
         char[] passcheck={'l','o','c','k','m','e','i','n'};
         
-        System.out.println( User.username);
+        System.out.println( obj.username);
        
-        if ("Admin".equals(User.username)&&Arrays.equals(adminpass, passcheck)){
+        if ("Admin".equals(obj.username)&&Arrays.equals(adminpass, passcheck)){
             
             Admin frame1=new Admin();
             frame1.setVisible(true);
             this.setVisible(false);
         }
         else {
-        boolean check=User.authenticate();
+        boolean check=obj.authenticate(obj.username,obj.password);
         if  (check==true){
          Booking frame1=new Booking();
                 frame1.setVisible(true);

@@ -18,22 +18,33 @@ import javax.swing.JOptionPane;
  * @author samee
  */
 public class User {
-    static int ID;
-    static String username;
-    static String password;
-    static int admin=0;
+     private static User obj;
+    private User() {}
+ 
+    // Only one thread can execute this at a time
+    public static synchronized User getInstance()
+    {
+        if (obj==null)
+            obj = new User();
+        return obj;
+    }
+    
+     int ID;
+     String username;
+     String password;
+     int admin=0;
     static Random rand = new Random();
     
 
 
-    static void save () throws SQLException{
+    public boolean save (String user,String pass) throws SQLException{
         for (int j = 0; j<1000; j++)
     {
         ID = rand.nextInt(88)+5;
         
     }
         System.out.println(ID);
-        System.out.println(username);
+        System.out.println(user);
  try{  
 Class.forName("com.mysql.jdbc.Driver");  
 //here sonoo is database name, root is username and password
@@ -41,17 +52,19 @@ Class.forName("com.mysql.jdbc.Driver");
             "jdbc:mysql://localhost:3306/paradisemarquee","root","")) {
         //here sonoo is database name, root is username and password
         Statement stmt=con.createStatement();
-        stmt.executeUpdate("INSERT into userinfo VALUES ( '"+ID+"', '"+username+"','"+password+"','0')");
+        stmt.executeUpdate("INSERT into userinfo VALUES ( '"+ID+"', '"+user+"','"+pass+"','0')");
         JOptionPane.showMessageDialog(null,"Sign Up Successful");
+        return true;
 //        ResultSet rs=stmt.executeQuery("select * from stdinfo");
 //        while(rs.next())
 //            System.out.println(rs.getString(1)+"  "+rs.getString(2));  
     }
 }catch(Exception e){ System.out.println(e);}  
+ return false;
     }
     
     
-    static boolean authenticate(){
+    public boolean authenticate(String user,String pass){
     try{  
 Class.forName("com.mysql.jdbc.Driver");  
 //here sonoo is database name, root is username and password
@@ -65,12 +78,12 @@ Class.forName("com.mysql.jdbc.Driver");
         while(rs.next()){
             usernamecheck=rs.getString(2);
             System.out.println(usernamecheck);
-            System.out.println(username);
+            System.out.println(user);
         passwordcheck=rs.getString(3);
-            if(usernamecheck.equals(username)){
+            if(usernamecheck.equals(user)){
                 System.out.println(passwordcheck);
-                System.out.println(password);
-                if (passwordcheck.equals(password)){
+                System.out.println(pass);
+                if (passwordcheck.equals(pass)){
                     ID=Integer.parseInt(rs.getString(1));
                 return true;
                 }

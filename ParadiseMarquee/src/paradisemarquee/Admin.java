@@ -13,7 +13,7 @@ import java.sql.Statement;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import static paradisemarquee.User.username;
+
 
 /**
  *
@@ -158,7 +158,9 @@ public class Admin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    public  void NotifyAdmin(){
+        System.out.println("Admin Notified about new booking");
+ }
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
         try{  
               DefaultTableModel model = (DefaultTableModel) jTable1.getModel();   

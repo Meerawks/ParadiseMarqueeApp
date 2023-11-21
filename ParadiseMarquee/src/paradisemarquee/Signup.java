@@ -13,7 +13,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import static paradisemarquee.User.ID;
+
 
 /**
  *
@@ -308,22 +308,23 @@ public class Signup extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-          User.username=jTextField1.getText();
-        User.password=jTextField2.getText();
-        boolean checkpassword=passwordvalidator(User.password);
-        boolean checkuser=checkuser(User.username);
+          User obj=User.getInstance();
+        obj.username=jTextField1.getText();
+        obj.password=jTextField2.getText();
+        boolean checkpassword=passwordvalidator(obj.password);
+        boolean checkuser=checkuser(obj.username);
         String checkpass=jTextField3.getText();
         if (checkpassword==true&&checkuser==true){
-        if ("Admin".equals(User.username)){
-            User.admin=1;
+        if ("Admin".equals(obj.username)){
+            obj.admin=1;
         }
         try {
-            if(checkpass.equals(User.password)){
-            User.save();
+            if(checkpass.equals(obj.password)){
+            obj.save(obj.username,obj.password);
             }
             else {
                 System.out.println(checkpass);
-                System.out.println(User.password);
+                System.out.println(obj.password);
                 JOptionPane.showMessageDialog(null,"password doesn't match");
             }
         } catch (SQLException ex) {
