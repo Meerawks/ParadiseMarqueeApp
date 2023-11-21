@@ -71,7 +71,7 @@ Class.forName("com.mysql.jdbc.Driver");
                 System.out.println(passwordcheck);
                 System.out.println(password);
                 if (passwordcheck.equals(password)){
-               
+                    ID=Integer.parseInt(rs.getString(1));
                 return true;
                 }
                 else {

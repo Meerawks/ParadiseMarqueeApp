@@ -5,6 +5,7 @@
  */
 package paradisemarquee;
 
+import java.text.SimpleDateFormat;
 import javax.swing.*;
 import java.util.Date;
 /**
@@ -12,14 +13,17 @@ import java.util.Date;
  * @author samee
  */
 public class Booking extends javax.swing.JFrame {
-
+  Boolean inputconfirmed=true;
     /**
      * Creates new form Booking
      */
     public Booking() {
         initComponents();
         Date date=new Date();
-        jDateChooser1.setMinSelectableDate(date);
+       
+        jDateChooser2.setMinSelectableDate(date);
+      
+        jDateChooser2.setDate(date);
      
     }
     /**
@@ -49,7 +53,7 @@ public class Booking extends javax.swing.JFrame {
         day1 = new javax.swing.JComboBox<>();
         jToggleButton8 = new javax.swing.JToggleButton();
         jToggleButton9 = new javax.swing.JToggleButton();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jDateChooser2 = new com.toedter.calendar.JDateChooser();
         jSpinner1 = new javax.swing.JSpinner();
         jLabel4 = new javax.swing.JLabel();
         jCheckBox1 = new javax.swing.JCheckBox();
@@ -233,39 +237,37 @@ public class Booking extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(213, 213, 213)
-                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel6)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel4))
-                                .addGap(33, 33, 33)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jLabel7))
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jDateChooser1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(day1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jToggleButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(10, 10, 10)
-                                        .addComponent(jToggleButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(68, 68, 68)
-                                        .addComponent(jLabel8))
-                                    .addComponent(jCheckBox1)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jToggleButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(233, 233, 233)))
-                        .addContainerGap(101, Short.MAX_VALUE))))
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel3)
+                                .addComponent(jLabel6)
+                                .addComponent(jLabel5)
+                                .addComponent(jLabel4))
+                            .addGap(33, 33, 33)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(jLabel7))
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jDateChooser2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(day1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jToggleButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(10, 10, 10)
+                                    .addComponent(jToggleButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(68, 68, 68)
+                                    .addComponent(jLabel8))
+                                .addComponent(jCheckBox1)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addComponent(jToggleButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 332, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(233, 233, 233))))
+                .addContainerGap(101, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -289,7 +291,7 @@ public class Booking extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -371,7 +373,52 @@ public class Booking extends javax.swing.JFrame {
     }//GEN-LAST:event_jToggleButton5ActionPerformed
 
     private void jToggleButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton6ActionPerformed
+        
+         try{
+          
+          BookingInfo.attendees = (Integer) jSpinner1.getValue();
+          if (BookingInfo.attendees<=0){
+              inputconfirmed=false;
+              
+               JOptionPane.showMessageDialog(null,"Enter Number of Attendees");
+          }
+          System.out.println(BookingInfo.attendees);
+           BookingInfo.event_type=day1.getSelectedItem().toString();
+           if (BookingInfo.event_type==""){
+              inputconfirmed=false;
+              
+               JOptionPane.showMessageDialog(null,"Enter Event Type");
+          }
+           System.out.println(BookingInfo.event_type);
+             BookingInfo.Date= new SimpleDateFormat("yyyy-MM-dd").format(jDateChooser2.getDate());
+              if (BookingInfo.Date==""){
+              inputconfirmed=false;
+              
+               JOptionPane.showMessageDialog(null,"Enter Date");
+          }
+           System.out.println(BookingInfo.Date);
+           boolean check=jCheckBox1.isSelected();
+           if(check==true){
+               BookingInfo.meal="true";
+           }
+            if(BookingInfo.slot==""){
+               inputconfirmed=false;
+               JOptionPane.showMessageDialog(null,"Select Slot");
+               
+           }
+            if(inputconfirmed==true){
+           BookingInfo.setPrice();
+           System.out.println(BookingInfo.price);
+           String setprice=Integer.toString(BookingInfo.price); 
+          jTextField2.setText("the cost is : "+ setprice);
+        
+            }
+       }catch(NumberFormatException e) {
+           JOptionPane.showMessageDialog(null,"Enter Valid Amount");
 
+      }
+         if(inputconfirmed==true)
+          BookingInfo.AddBooking();
         //Reading from file and inserting data into linked list
 
 //        list1.getfromfile("Monday");
@@ -532,22 +579,48 @@ public class Booking extends javax.swing.JFrame {
    //calculating and displaying cost of the event
 
     
-      try{
+          Boolean inputconfirmed=true;
+         try{
           
           BookingInfo.attendees = (Integer) jSpinner1.getValue();
+          if (BookingInfo.attendees<=0){
+              inputconfirmed=false;
+              
+               JOptionPane.showMessageDialog(null,"Enter Number of Attendees");
+          }
           System.out.println(BookingInfo.attendees);
            BookingInfo.event_type=day1.getSelectedItem().toString();
+           if (BookingInfo.event_type==""){
+              inputconfirmed=false;
+              
+               JOptionPane.showMessageDialog(null,"Enter Event Type");
+          }
            System.out.println(BookingInfo.event_type);
-           BookingInfo.date=jDateChooser1.getDate();
-           System.out.println(BookingInfo.date);
+             BookingInfo.Date= new SimpleDateFormat("yyyy-MM-dd").format(jDateChooser2.getDate());
+              if (BookingInfo.Date==""){
+              inputconfirmed=false;
+              
+               JOptionPane.showMessageDialog(null,"Enter Date");
+          }
+           System.out.println(BookingInfo.Date);
            boolean check=jCheckBox1.isSelected();
            if(check==true){
-               BookingInfo.meal=true;
+               BookingInfo.meal="true";
            }
+           if(BookingInfo.slot==""){
+               inputconfirmed=false;
+               JOptionPane.showMessageDialog(null,"Select Slot");
+               
+           }
+           
+             if(inputconfirmed==true){
+               
+           
            BookingInfo.setPrice();
            System.out.println(BookingInfo.price);
            String setprice=Integer.toString(BookingInfo.price); 
           jTextField2.setText("the cost is : "+ setprice);
+             }
        }catch(NumberFormatException e) {
            JOptionPane.showMessageDialog(null,"Enter Valid Amount");
 
@@ -558,11 +631,19 @@ public class Booking extends javax.swing.JFrame {
        int input = JOptionPane.showConfirmDialog(null, "You have selected slot 1. Do you want to confirm?");
        if (input==0){
            BookingInfo.slot="slot1";
+           
        }
+       else 
+           inputconfirmed=false;
     }//GEN-LAST:event_jToggleButton8ActionPerformed
 
     private void jToggleButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton9ActionPerformed
         int input = JOptionPane.showConfirmDialog(null, "You have selected slot 2. Do you want to confirm?");
+        if (input==0){
+           BookingInfo.slot="slot2";
+       }
+         else 
+           inputconfirmed=false;
     }//GEN-LAST:event_jToggleButton9ActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
@@ -607,7 +688,7 @@ public class Booking extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> day1;
     private javax.swing.JCheckBox jCheckBox1;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

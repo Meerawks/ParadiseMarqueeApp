@@ -5,6 +5,8 @@
  */
 package paradisemarquee;
 
+import java.util.Arrays;
+
 /**
  *
  * @author samee
@@ -171,11 +173,25 @@ public class Login extends javax.swing.JFrame {
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
         User.username=jTextField1.getText();
         User.password=jTextField2.getText();
+        System.out.println(jTextField2.getPassword());
+        char[] adminpass=jTextField2.getPassword();
+        char[] passcheck={'l','o','c','k','m','e','i','n'};
+        
+        System.out.println( User.username);
+       
+        if ("Admin".equals(User.username)&&Arrays.equals(adminpass, passcheck)){
+            
+            Admin frame1=new Admin();
+            frame1.setVisible(true);
+            this.setVisible(false);
+        }
+        else {
         boolean check=User.authenticate();
         if  (check==true){
          Booking frame1=new Booking();
                 frame1.setVisible(true);
                 this.setVisible(false);
+        }
         }
     }//GEN-LAST:event_jButton17ActionPerformed
 
