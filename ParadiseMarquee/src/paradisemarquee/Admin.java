@@ -10,6 +10,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.Vector;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -20,7 +21,8 @@ import javax.swing.table.DefaultTableModel;
  * @author samee
  */
 public class Admin extends javax.swing.JFrame {
-
+    
+    boolean dateselected=false;
     /**
      * Creates new form Admin
      */
@@ -37,28 +39,60 @@ public class Admin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jFrame1 = new javax.swing.JFrame();
+        jFrame2 = new javax.swing.JFrame();
+        jFrame3 = new javax.swing.JFrame();
         jPanel9 = new javax.swing.JPanel();
-        jButton17 = new javax.swing.JButton();
         jLabel22 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton18 = new javax.swing.JButton();
         jButton19 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jButton20 = new javax.swing.JButton();
+        jButton21 = new javax.swing.JButton();
+        jPanel2 = new javax.swing.JPanel();
+        jToggleButton5 = new javax.swing.JToggleButton();
+        jDateChooser3 = new com.toedter.calendar.JDateChooser();
+
+        javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
+        jFrame1.getContentPane().setLayout(jFrame1Layout);
+        jFrame1Layout.setHorizontalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame1Layout.setVerticalGroup(
+            jFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jFrame2Layout = new javax.swing.GroupLayout(jFrame2.getContentPane());
+        jFrame2.getContentPane().setLayout(jFrame2Layout);
+        jFrame2Layout.setHorizontalGroup(
+            jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame2Layout.setVerticalGroup(
+            jFrame2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout jFrame3Layout = new javax.swing.GroupLayout(jFrame3.getContentPane());
+        jFrame3.getContentPane().setLayout(jFrame3Layout);
+        jFrame3Layout.setHorizontalGroup(
+            jFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jFrame3Layout.setVerticalGroup(
+            jFrame3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel9.setBackground(new java.awt.Color(93, 16, 73));
         jPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(78, 13, 58), 10));
-
-        jButton17.setBackground(new java.awt.Color(255, 255, 255));
-        jButton17.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
-        jButton17.setForeground(new java.awt.Color(78, 13, 58));
-        jButton17.setText("Refresh");
-        jButton17.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton17ActionPerformed(evt);
-            }
-        });
 
         jLabel22.setFont(new java.awt.Font("Century Gothic", 1, 24)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
@@ -110,50 +144,149 @@ public class Admin extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("Click on a booking to edit it.");
+
+        jTextField1.setText(" Enter booking ID");
+        jTextField1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField1MouseClicked(evt);
+            }
+        });
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
+        jButton20.setBackground(new java.awt.Color(255, 255, 255));
+        jButton20.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jButton20.setForeground(new java.awt.Color(78, 13, 58));
+        jButton20.setText("Go");
+        jButton20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton20ActionPerformed(evt);
+            }
+        });
+
+        jButton21.setBackground(new java.awt.Color(255, 255, 255));
+        jButton21.setFont(new java.awt.Font("Century Gothic", 1, 14)); // NOI18N
+        jButton21.setForeground(new java.awt.Color(78, 13, 58));
+        jButton21.setText("Refresh");
+        jButton21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton21ActionPerformed(evt);
+            }
+        });
+
+        jPanel2.setBackground(new java.awt.Color(78, 13, 58));
+
+        jToggleButton5.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton5.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        jToggleButton5.setForeground(new java.awt.Color(78, 13, 58));
+        jToggleButton5.setText("Log Out");
+        jToggleButton5.setBorder(null);
+        jToggleButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton5ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(737, Short.MAX_VALUE)
+                .addComponent(jToggleButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jToggleButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 15, Short.MAX_VALUE))
+        );
+
+        jDateChooser3.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jDateChooser3PropertyChange(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
         jPanel9Layout.setHorizontalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                .addContainerGap(48, Short.MAX_VALUE)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel9Layout.createSequentialGroup()
-                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
-                            .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(33, 33, 33)
-                            .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 683, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(59, 59, 59))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel9Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 151, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(343, 343, 343))
+            .addGroup(jPanel9Layout.createSequentialGroup()
+                .addGap(106, 106, 106)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton20)
+                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(jPanel9Layout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton21, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel9Layout.createSequentialGroup()
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(282, 282, 282)
+                                .addComponent(jButton18, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 683, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel9Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton17))
-                .addGap(18, 18, 18)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40)
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton21)
+                    .addComponent(jLabel1))
+                .addGap(26, 26, 26)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton18)
-                    .addComponent(jButton19))
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jButton18)
+                            .addComponent(jButton19))
+                        .addGroup(jPanel9Layout.createSequentialGroup()
+                            .addComponent(jTextField1)
+                            .addGap(2, 2, 2)))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addComponent(jDateChooser3, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(2, 2, 2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton20)
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, 867, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -161,53 +294,21 @@ public class Admin extends javax.swing.JFrame {
     public  void NotifyAdmin(){
         System.out.println("Admin Notified about new booking");
  }
-    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-        try{  
-              DefaultTableModel model = (DefaultTableModel) jTable1.getModel();   
-              model.setRowCount(0);
-Class.forName("com.mysql.jdbc.Driver");  
-
-    try (Connection con = DriverManager.getConnection(  
-            "jdbc:mysql://localhost:3306/paradisemarquee","root","")) {
-       
-        Statement stmt=con.createStatement();
-    
-        ResultSet rs=stmt.executeQuery("select * from booking");
-            
-        
-            
-            
-            Vector row=new Vector();
-        
-        while(rs.next()){
-            
-        row.add(0,rs.getInt(1));
-        row.add(1,rs.getInt(2));
-        row.add(2,rs.getString(3));
-        row.add(3,rs.getString(4));
-        row.add(4,rs.getString(5));
-        row.add(5,rs.getString(6));
-        row.add(6,rs.getString(7));
-        row.add(7,rs.getInt(8));
-        row.add(8,rs.getString(9));
-         model.addRow(new Object[]{row.get(0), row.get(1), row.get(2),row.get(3),row.get(4),row.get(5),row.get(6),row.get(7),row.get(8)});
-           
-            
-        }
-        
-    }
-}catch(Exception e){ System.out.println(e);} 
-    }//GEN-LAST:event_jButton17ActionPerformed
-
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
        int row=1000;
                row=jTable1.getSelectedRow();
         
        System.out.println(jTable1.getModel().getValueAt(row,1));
      int ID = (int) jTable1.getModel().getValueAt(row,1);
+        String status=jTable1.getModel().getValueAt(row,8).toString();
+        System.out.println(status);
         System.out.println(ID);
               if (row==1000){
                   JOptionPane.showMessageDialog(null,"Select Booking ID");
+              }else if("Fulfilled".equals(status)){
+                  JOptionPane.showMessageDialog(null,"Fulfilled bookings cannot be cancelled");
+              }else if("Cancelled".equals(status)){
+                  JOptionPane.showMessageDialog(null,"Booking cancelled already");
               }
               else{
                    try{  
@@ -218,6 +319,7 @@ Class.forName("com.mysql.jdbc.Driver");
          int input = JOptionPane.showConfirmDialog(null, "You sure you want to cancel booking?");
        if (input==0){
         Statement stmt=con.createStatement();
+    
     String query = "update booking set status = ? where booking_id = ?";
 PreparedStatement preparedStatement = con.prepareStatement(query);
 
@@ -244,9 +346,15 @@ preparedStatement.executeUpdate();
         
        System.out.println(jTable1.getModel().getValueAt(row,1));
      int ID = (int) jTable1.getModel().getValueAt(row,1);
+     String status=jTable1.getModel().getValueAt(row,8).toString();
+        System.out.println(status);
         System.out.println(ID);
               if (row==1000){
                   JOptionPane.showMessageDialog(null,"Select Booking ID");
+              }else if("Cancelled".equals(status)){
+                  JOptionPane.showMessageDialog(null,"Cancelled bookings cannot be fulfilled");
+              }else if("Fulfilled".equals(status)){
+                  JOptionPane.showMessageDialog(null,"Booking fulfilled already");
               }
               else{
                    try{  
@@ -276,6 +384,113 @@ preparedStatement.executeUpdate();
 }catch(Exception e){ System.out.println(e);} 
               }
     }//GEN-LAST:event_jButton19ActionPerformed
+
+    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+      
+      String newDate;
+        int ID=0;
+        try{  
+          try { 
+              newDate=new SimpleDateFormat("yyyy-MM-dd").format(jDateChooser3.getDate());
+        ID=Integer.parseInt(jTextField1.getText());
+    } catch(NumberFormatException e) { 
+        JOptionPane.showMessageDialog(null,"Enter a valid booking ID");
+    }
+              DefaultTableModel model = (DefaultTableModel) jTable1.getModel();   
+              model.setRowCount(0);
+Class.forName("com.mysql.jdbc.Driver");  
+
+    try (Connection con = DriverManager.getConnection(  
+            "jdbc:mysql://localhost:3306/paradisemarquee","root","")) {
+       
+        Statement stmt=con.createStatement();
+    
+           ResultSet rs;
+//            if(dateselected==true){
+//              rs=stmt.executeQuery("select * from booking where booking_id='"+ID+"' AND date='"+newDate+"' ");
+//            }
+//            else 
+                  rs=stmt.executeQuery("select * from booking where booking_id='"+ID+"'");
+        
+            
+            
+            Vector row=new Vector();
+        
+        while(rs.next()){
+            
+        row.add(0,rs.getInt(1));
+        row.add(1,rs.getInt(2));
+        row.add(2,rs.getString(3));
+        row.add(3,rs.getString(4));
+        row.add(4,rs.getString(5));
+        row.add(5,rs.getString(6));
+        row.add(6,rs.getString(7));
+        row.add(7,rs.getInt(8));
+        row.add(8,rs.getString(9));
+         model.addRow(new Object[]{row.get(0), row.get(1), row.get(2),row.get(3),row.get(4),row.get(5),row.get(6),row.get(7),row.get(8)});
+           
+            
+        }
+        
+    }
+}catch(Exception e){ System.out.println(e);} 
+    }//GEN-LAST:event_jButton20ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField1MouseClicked
+        jTextField1.setText("");
+    }//GEN-LAST:event_jTextField1MouseClicked
+
+    private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
+           try{
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            model.setRowCount(0);
+            User obj=User.getInstance();
+            int userID=obj.ID;
+            Class.forName("com.mysql.jdbc.Driver");
+            
+            try (Connection con = DriverManager.getConnection(
+                "jdbc:mysql://localhost:3306/paradisemarquee","root","")) {
+
+            Statement stmt=con.createStatement();
+
+            ResultSet rs=stmt.executeQuery("select * from booking");
+
+            Vector row=new Vector();
+                
+            while(rs.next()){
+
+                row.add(0,rs.getInt(1));
+                row.add(1,rs.getInt(2));
+                row.add(2,rs.getString(3));
+                row.add(3,rs.getString(4));
+                row.add(4,rs.getString(5));
+                row.add(5,rs.getString(6));
+                row.add(6,rs.getString(7));
+                row.add(7,rs.getInt(8));
+                row.add(8,rs.getString(9));
+                model.addRow(new Object[]{row.get(0), row.get(1), row.get(2),row.get(3),row.get(4),row.get(5),row.get(6),row.get(7),row.get(8)});
+
+            }
+
+        }
+        }catch(Exception e){ System.out.println(e);}
+    }//GEN-LAST:event_jButton21ActionPerformed
+
+    private void jToggleButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton5ActionPerformed
+
+      this.setVisible(false);
+       Authentication frame2=new Authentication();
+        frame2.setVisible(true);
+
+    }//GEN-LAST:event_jToggleButton5ActionPerformed
+
+    private void jDateChooser3PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jDateChooser3PropertyChange
+      dateselected=true;
+    }//GEN-LAST:event_jDateChooser3PropertyChange
 
     /**
      * @param args the command line arguments
@@ -313,12 +528,21 @@ preparedStatement.executeUpdate();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton19;
+    private javax.swing.JButton jButton20;
+    private javax.swing.JButton jButton21;
+    private com.toedter.calendar.JDateChooser jDateChooser3;
+    private javax.swing.JFrame jFrame1;
+    private javax.swing.JFrame jFrame2;
+    private javax.swing.JFrame jFrame3;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JToggleButton jToggleButton5;
     // End of variables declaration//GEN-END:variables
 }

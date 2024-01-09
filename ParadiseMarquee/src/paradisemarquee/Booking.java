@@ -41,7 +41,6 @@ public class Booking extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jToggleButton3 = new javax.swing.JToggleButton();
         jToggleButton4 = new javax.swing.JToggleButton();
         jToggleButton5 = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
@@ -69,21 +68,10 @@ public class Booking extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(78, 13, 58));
 
-        jToggleButton3.setBackground(new java.awt.Color(255, 255, 255));
-        jToggleButton3.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        jToggleButton3.setForeground(new java.awt.Color(78, 13, 58));
-        jToggleButton3.setText("Remove Booking");
-        jToggleButton3.setBorder(null);
-        jToggleButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButton3ActionPerformed(evt);
-            }
-        });
-
         jToggleButton4.setBackground(new java.awt.Color(255, 255, 255));
         jToggleButton4.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
         jToggleButton4.setForeground(new java.awt.Color(78, 13, 58));
-        jToggleButton4.setText("View History");
+        jToggleButton4.setText("View & Edit Bookings");
         jToggleButton4.setBorder(null);
         jToggleButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,9 +96,7 @@ public class Booking extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jToggleButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jToggleButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jToggleButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jToggleButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
@@ -120,7 +106,6 @@ public class Booking extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jToggleButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jToggleButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
@@ -338,26 +323,13 @@ public class Booking extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jToggleButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton3ActionPerformed
-
-        //Creating remove booking frame
-
-//        RemoveBooking frameone=new RemoveBooking();
-//        frameone.setTitle("Cancel Booking");
-//        frameone.setResizable(false);
-//        frameone.setVisible(true);
-//        frameone.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-    }//GEN-LAST:event_jToggleButton3ActionPerformed
-
     private void jToggleButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton4ActionPerformed
 
-        //Creating history frame
-
-//        History frameone=new History();
-//        frameone.setTitle("Booking History");
-//        frameone.setResizable(false);
-//        frameone.setVisible(true);
-//        frameone.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+        ViewHistory frame1=new ViewHistory();
+        frame1.setTitle("Booking History");
+        frame1.setResizable(false);
+        frame1.setVisible(true);
+        frame1.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 
     }//GEN-LAST:event_jToggleButton4ActionPerformed
 
@@ -711,7 +683,6 @@ public class Booking extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JToggleButton jToggleButton3;
     private javax.swing.JToggleButton jToggleButton4;
     private javax.swing.JToggleButton jToggleButton5;
     private javax.swing.JToggleButton jToggleButton6;

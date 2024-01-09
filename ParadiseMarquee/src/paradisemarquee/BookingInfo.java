@@ -6,10 +6,12 @@
 package paradisemarquee;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Date;
 import java.util.Random;
 import javax.swing.JOptionPane;
+
 
 /**
  *
@@ -35,24 +37,47 @@ public class BookingInfo {
         if(meal=="true")
             price+=15000;
     }
-    static public void AddBooking(){
+    static public boolean AddBooking(){
        for (int j = 0; j<1000; j++)
     {
-        Booking_No = rand.nextInt(88)+5;
+        Booking_No = rand.nextInt(1000)+5;
         
     }
-        try{  
+       
+       try{  
 Class.forName("com.mysql.jdbc.Driver");  
-
+//here sonoo is database name, root is username and password
     try (Connection con = DriverManager.getConnection(  
             "jdbc:mysql://localhost:3306/paradisemarquee","root","")) {
-        User obj=User.getInstance();
+        //here sonoo is database name, root is username and password
+        String newDate,SlotNo;
         Statement stmt=con.createStatement();
+        
+        ResultSet rs=stmt.executeQuery("select * from booking");
+        while(rs.next()){
+            newDate=rs.getString(4);
+            SlotNo=rs.getString(5);
+
+           if (Date == null ? newDate == null : Date.equals(newDate)){
+               if (SlotNo == null ? slot == null : SlotNo.equals(slot)){
+                JOptionPane.showMessageDialog(null,"This slot has been taken!");
+                System.out.println(newDate);
+                System.out.println(Date);
+                System.out.println("here we are "+SlotNo+" "+ slot);
+                return false;
+               }
+           }
+   
+        }
+         User obj=User.getInstance();
+       
         stmt.executeUpdate("INSERT into booking VALUES ( '"+obj.ID+"', '"+Booking_No+"','"+event_type+"','"+Date+"','"+slot+"','"+meal+"','"+attendees+"','"+price+"','"+status+"')");
         JOptionPane.showMessageDialog(null,"Booking Confirmed");
-
+        
+               
     }
-}catch(Exception e){ System.out.println(e);}  
+}catch(Exception e){ System.out.println(e);} 
+        return true;
     }
     
     }
