@@ -19,12 +19,12 @@ public class FAQServer {
 
     public static void main(String[] args) {
         
-        faqDatabase.put("1", "Fill in the information on the Bookings window then press confirm to book an event. Make sure to check the price. ");
+        faqDatabase.put("1", "Fill in the information on the Bookings window then press confirm to book an event. Make sure to check the price.");
         faqDatabase.put("2", "In Booking menu click Edit Bookings. Click on a booking from your history and press cancel.");
         faqDatabase.put("3", "In Booking menu click Edit Bookings. Press refresh.");
-         faqDatabase.put("4", "Go to My account. Then press reset password");
-           faqDatabase.put("5", "Meal includes Chicken Karahi, Biryani and carrot pudding");
-           faqDatabase.put("6", "Slot 1 starts from 12pm to 5pm and slot 2 starts from 7pm to 12 pm");
+         faqDatabase.put("4", "Go to Reset Password and change the password to a new one.");
+           faqDatabase.put("5", "Meal includes Chicken Karahi, Biryani and carrot pudding.");
+           faqDatabase.put("6", "Slot 1 starts from 12pm to 5pm and slot 2 starts from 7pm to 12 pm.");
            
 
         try {

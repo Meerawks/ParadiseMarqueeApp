@@ -31,13 +31,14 @@ public class User {
     
      int ID;
      String username;
+     String email;
      String password;
      int admin=0;
     static Random rand = new Random();
     
 
 
-    public boolean save (String user,String pass) throws SQLException{
+    public boolean save (String email,String user,String pass) throws SQLException{
         for (int j = 0; j<1000; j++)
     {
         ID = rand.nextInt(88)+5;
@@ -52,7 +53,7 @@ Class.forName("com.mysql.jdbc.Driver");
             "jdbc:mysql://localhost:3306/paradisemarquee","root","")) {
         //here sonoo is database name, root is username and password
         Statement stmt=con.createStatement();
-        stmt.executeUpdate("INSERT into userinfo VALUES ( '"+ID+"', '"+user+"','"+pass+"','0')");
+        stmt.executeUpdate("INSERT into userinfo VALUES ( '"+email+"','"+ID+"', '"+user+"','"+pass+"','0')");
         JOptionPane.showMessageDialog(null,"Sign Up Successful");
         return true;
 //        ResultSet rs=stmt.executeQuery("select * from stdinfo");
@@ -64,7 +65,7 @@ Class.forName("com.mysql.jdbc.Driver");
     }
     
     
-    public boolean authenticate(String user,String pass){
+    public boolean authenticate(String email,String pass){
     try{  
 Class.forName("com.mysql.jdbc.Driver");  
 //here sonoo is database name, root is username and password
@@ -72,19 +73,19 @@ Class.forName("com.mysql.jdbc.Driver");
             "jdbc:mysql://localhost:3306/paradisemarquee","root","")) {
         //here sonoo is database name, root is username and password
         Statement stmt=con.createStatement();
-        String usernamecheck=null;
+        String emailcheck=null;
         String passwordcheck=null;
         ResultSet rs=stmt.executeQuery("select * from userinfo");
         while(rs.next()){
-            usernamecheck=rs.getString(2);
-            System.out.println(usernamecheck);
-            System.out.println(user);
-        passwordcheck=rs.getString(3);
-            if(usernamecheck.equals(user)){
+            emailcheck=rs.getString(1);
+            System.out.println(emailcheck);
+            System.out.println(email);
+        passwordcheck=rs.getString(4);
+            if(emailcheck.equals(email)){
                 System.out.println(passwordcheck);
                 System.out.println(pass);
                 if (passwordcheck.equals(pass)){
-                    ID=Integer.parseInt(rs.getString(1));
+                    ID=Integer.parseInt(rs.getString(2));
                 return true;
                 }
                 else {

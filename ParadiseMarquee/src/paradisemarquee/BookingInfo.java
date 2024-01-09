@@ -37,7 +37,7 @@ public class BookingInfo {
         if(meal=="true")
             price+=15000;
     }
-    static public boolean AddBooking(){
+    static public boolean AddBooking(int id,String eventtype,String date,String meal,String slot,int attendees,int price, String status){
        for (int j = 0; j<1000; j++)
     {
         Booking_No = rand.nextInt(1000)+5;
@@ -71,7 +71,7 @@ Class.forName("com.mysql.jdbc.Driver");
         }
          User obj=User.getInstance();
        
-        stmt.executeUpdate("INSERT into booking VALUES ( '"+obj.ID+"', '"+Booking_No+"','"+event_type+"','"+Date+"','"+slot+"','"+meal+"','"+attendees+"','"+price+"','"+status+"')");
+        stmt.executeUpdate("INSERT into booking VALUES ( '"+obj.ID+"', '"+Booking_No+"','"+eventtype+"','"+date+"','"+slot+"','"+meal+"','"+attendees+"','"+price+"','"+status+"')");
         JOptionPane.showMessageDialog(null,"Booking Confirmed");
         
                
