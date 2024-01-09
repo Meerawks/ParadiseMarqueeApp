@@ -9,11 +9,8 @@ package paradisemarquee;
  *
  * @author samee
  */
-public  class Observer {
+public  abstract class Observer {
 
-public void Notify(){
-    System.out.println("Notifying Admin");
-    Admin obj=new Admin();
-    obj.NotifyAdmin();
-}
+protected Subject subject;
+   public abstract void update();
 }

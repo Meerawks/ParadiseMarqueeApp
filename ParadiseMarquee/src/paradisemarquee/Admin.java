@@ -289,7 +289,7 @@ public class Admin extends javax.swing.JFrame {
                             .addComponent(jButton19))
                         .addGroup(jPanel9Layout.createSequentialGroup()
                             .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jTextField1)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel3))
                             .addGap(2, 2, 2)))
                     .addGroup(jPanel9Layout.createSequentialGroup()

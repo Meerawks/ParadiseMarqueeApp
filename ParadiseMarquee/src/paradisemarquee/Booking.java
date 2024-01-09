@@ -6,23 +6,36 @@
 package paradisemarquee;
 
 import com.toedter.calendar.JTextFieldDateEditor;
-import java.awt.List;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import javax.swing.*;
 import java.util.Date;
+
 /**
  *
  * @author samee
  */
 public class Booking extends javax.swing.JFrame {
+    Subject subject;
+    
 
+  
+   public void update() {
+      System.out.println("Update added from Admin"); 
+   }
   Boolean inputconfirmed=true;
   
     /**
      * Creates new form Booking
      */
     public Booking() {
+        //Adding observer to list
+        Observer obj=null;
+        Subject.observers.add(obj);
+        
+        //initialization
+      
         initComponents();
         Date date=new Date();
        JTextFieldDateEditor editor = (JTextFieldDateEditor) jDateChooser2.getDateEditor();
@@ -45,6 +58,7 @@ public class Booking extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jToggleButton4 = new javax.swing.JToggleButton();
         jToggleButton5 = new javax.swing.JToggleButton();
+        jToggleButton10 = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -92,6 +106,17 @@ public class Booking extends javax.swing.JFrame {
             }
         });
 
+        jToggleButton10.setBackground(new java.awt.Color(255, 255, 255));
+        jToggleButton10.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        jToggleButton10.setForeground(new java.awt.Color(78, 13, 58));
+        jToggleButton10.setText("FAQ");
+        jToggleButton10.setBorder(null);
+        jToggleButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton10ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -99,6 +124,8 @@ public class Booking extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jToggleButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jToggleButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jToggleButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25))
@@ -109,7 +136,8 @@ public class Booking extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jToggleButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jToggleButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jToggleButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
@@ -391,8 +419,8 @@ public class Booking extends javax.swing.JFrame {
       }
          if(inputconfirmed==true){
           BookingInfo.AddBooking();
-             Observer obj=new Observer();
-             obj.Notify();
+          int i=subject.getStates();
+             subject.setState(i++);
            
          }
 
@@ -627,6 +655,12 @@ public class Booking extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
+    private void jToggleButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton10ActionPerformed
+       FAQclient frame1=new FAQclient();
+       frame1.setVisible(true);
+       frame1.setTitle("FAQ");
+    }//GEN-LAST:event_jToggleButton10ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -679,6 +713,7 @@ public class Booking extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JToggleButton jToggleButton10;
     private javax.swing.JToggleButton jToggleButton4;
     private javax.swing.JToggleButton jToggleButton5;
     private javax.swing.JToggleButton jToggleButton6;

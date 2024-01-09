@@ -17,6 +17,7 @@ public class Main {
     public static void main(String[] args) {
         Authentication frame1=new Authentication();
         frame1.setVisible(true);
+        FAQServer.main(args);
     }
     
 }
