@@ -5,6 +5,7 @@
  */
 package paradisemarquee;
 
+import com.toedter.calendar.JTextFieldDateEditor;
 import java.awt.List;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -24,7 +25,8 @@ public class Booking extends javax.swing.JFrame {
     public Booking() {
         initComponents();
         Date date=new Date();
-       
+       JTextFieldDateEditor editor = (JTextFieldDateEditor) jDateChooser2.getDateEditor();
+    editor.setEditable(false);
         jDateChooser2.setMinSelectableDate(date);
       
         jDateChooser2.setDate(date);
@@ -335,15 +337,9 @@ public class Booking extends javax.swing.JFrame {
 
     private void jToggleButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton5ActionPerformed
 
-        //Creating Log In & Sign Up frame if logout button is pressed
-
-//        int input = JOptionPane.showConfirmDialog(null,"Are you sure?");
-//        if(input==0){
-//            Log_Sign frametwo=new Log_Sign();
-//            frametwo.setVisible(true);
-//            frametwo.setResizable(false);
-//            frametwo.setTitle("Digital Maquee Booking");
-//            this.setVisible(false);
+        this.setVisible(false);
+       Authentication frame2=new Authentication();
+        frame2.setVisible(true);
 
         
     }//GEN-LAST:event_jToggleButton5ActionPerformed
